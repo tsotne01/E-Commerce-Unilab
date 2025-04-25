@@ -2,8 +2,8 @@
 
 @font-face {
     font-family: "Satoshi";
-    src: url("./assets/Fonts/Satoshi/Fonts/WEB/fonts/Satoshi-Regular.woff2")
-        format("woff2");
+    src: url("./assets/Fonts/Satoshi/Fonts/WEB/fonts/Satoshi-Regular.woff")
+        format("woff");
 }
 
 @font-face {
@@ -20,6 +20,6 @@
 
 .integral-cf {
     font-family: "Integral CF", sans-serif;
-    font-weight: 400 900;
+    /* font-weight: 400 900; */
     font-style: normal;
 }
