@@ -8,7 +8,7 @@ export const getUser = (userData) => {
 };
 
 export const getUserFromLocalStorage = async () => {
-  const user = JSON.parse(await localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
   return user;
 };
 

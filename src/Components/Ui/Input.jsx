@@ -6,6 +6,7 @@ const Input = ({
   placeholder,
   className,
   onChange = () => {},
+  ...rest
 }) => {
   const handleChange = (event) => {
     onChange(event.target.value);
@@ -14,14 +15,16 @@ const Input = ({
   return (
     <div className={` flex items-center  ${className}`}>
       <label htmlFor={label} className="flex gap-3">
-        <img className="w-6 h-6 cursor-pointer" src={icon} alt="Input Icon" />
+        {icon && (
+          <img className="w-6 h-6 cursor-pointer" src={icon} alt="Input Icon" />
+        )}
         <input
           id={label}
           type={type}
           value={value}
           placeholder={placeholder}
           onChange={handleChange}
-          className="focus:outline-none text-base"
+          {...rest}
         />
       </label>
     </div>

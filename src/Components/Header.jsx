@@ -43,7 +43,7 @@ const Header = () => {
             <NavItem to="/">New Arrivals</NavItem>
             <NavItem to="/">Brands</NavItem>
             <Input
-              className="satoshi search-div py-3 px-4 rounded-[64px] bg-[#F0F0F0] hidden  lg:block lg:w-[400px] xl:w-[577px]"
+              className="satoshi search-div focus:outline-none text-base py-3 px-4 rounded-[64px] bg-[#F0F0F0] hidden  lg:block lg:w-[400px] xl:w-[577px]"
               type="search"
               placeholder="Search for products..."
               icon={searchIcon}
