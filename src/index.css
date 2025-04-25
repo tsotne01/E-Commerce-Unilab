@@ -22,3 +22,7 @@
     font-family: "Integral CF", sans-serif;
     font-style: normal;
 }
+
+.scrollbar-w-0 {
+    scrollbar-width: none;
+}

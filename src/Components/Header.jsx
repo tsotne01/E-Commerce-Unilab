@@ -22,7 +22,7 @@ const Header = () => {
       </div>
       <header className="flex justify-center">
         <div className="flex w-[1440px]  md:px-[100px] justify-between pl-6 md:justify-start items-center py-6">
-          <div className="flex items-center  mr-10">
+          <div className="flex items-center mr-0 md:mr-10">
             <button type="button" className="w-6 h-6 mx-4 md:hidden">
               <img className="w-6 h-6" src={burgerMenuIcon} alt="menu" />
             </button>
@@ -54,7 +54,7 @@ const Header = () => {
               id="searchInput"
             />
           </nav>
-          <div className="flex gap-3 ml-[40px]">
+          <div className="flex gap-3 ml-[20px] md:ml-[40px]">
             <button type="button" className="w-6 h-6 md:hidden">
               <img
                 className="w-6 h-6 md:hidden"

@@ -12,8 +12,13 @@ const ItemCard = ({ item }) => {
       />
       <h2 className="text-lg satoshi font-extrabold mb-2">{item.title}</h2>
       <div className="rating flex gap-1">
-        {Array.from({ length: 5 }, (_, i) => (
-          <img key={i} src={star} alt="Star" className="w-5 h-5" />
+        {Array.from({ length: 5 }, () => (
+          <img
+            key={Math.floor(1000000 * Math.random())}
+            src={star}
+            alt="Star"
+            className="w-5 h-5"
+          />
         ))}
         <span className="text-sm satoshi font-thin">
           {item.rating}
