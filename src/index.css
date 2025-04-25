@@ -6,8 +6,20 @@
         format("woff2");
 }
 
+@font-face {
+    font-family: "Integral CF";
+    src: url("./assets/Fonts/Integral-CF/Demo_Fonts/Fontspring-DEMO-integralcf-regular.otf")
+        format("opentype");
+}
+
 .satoshi {
     font-family: "Satoshi", sans-serif;
     font-weight: 400;
+    font-style: normal;
+}
+
+.integral-cf {
+    font-family: "Integral CF", sans-serif;
+    font-weight: 400 900;
     font-style: normal;
 }
