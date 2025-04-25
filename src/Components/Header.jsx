@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import closeIcon from "../assets/Icons/Close-icon.svg";
-import logo from "../assets/Logo/Logo.svg";
+import arrowDown from "../assets/Icons/Arrow-down.svg";
 import searchIcon from "../assets/Icons/Search-icon.svg";
 import cartIcon from "../assets/Icons/Cart-icon.svg";
 import profileIcon from "../assets/Icons/Profile-icon.svg";
@@ -11,7 +11,7 @@ import Input from "./Ui/Input";
 const Header = () => {
   return (
     <>
-      <div className="bg-black w-full  text-white flex justify-center items-center text-xs md:text-sm h-9 satoshi">
+      <div className="bg-black w-full  text-white flex justify-center items-center text-xs md:text-sm h-[38px] satoshi">
         Sign up and get 20% off to your first order.{" "}
         <NavLink className="satoshi underline ml-1" to="/signup-page">
           Sign Up Now
@@ -21,33 +21,29 @@ const Header = () => {
         </button>
       </div>
       <header className="flex justify-center">
-        <div className="flex w-full justify-around md:justify-center gap-x-2 md:gap-x-3 sm:gap-x-2 lg:gap-x-10 items-center py-6">
-          <div className="flex items-center">
-            <button type="button" className="w-6 h-6 md:hidden">
+        <div className="flex w-[1440px]  md:px-[100px] justify-between pl-6 md:justify-start items-center py-6">
+          <div className="flex items-center  mr-10">
+            <button type="button" className="w-6 h-6 mx-4 md:hidden">
               <img className="w-6 h-6" src={burgerMenuIcon} alt="menu" />
             </button>
-            <NavLink
-              className="satoshi mr-10 md:w-40 md:h-[22px] h-4 w-32"
-              to="/"
-            >
-              <img
-                src={logo}
-                alt="Logo"
-                className="md:w-40 md:h-[22px] h-4 w-32"
-              />
+            <NavLink className="satoshi mr-2" to="/">
+              <span className="integral-cf font-extrabold text-3xl">
+                Shop.co
+              </span>
             </NavLink>
           </div>
-          <nav className="items-center gap-x-6 hidden md:gap-x-2 lg:gap-x-4 sm:hidden md:flex lg:flex">
-            <NavLink className="satoshi text-base" to="/">
+          <nav className="items-center gap-x-6 hidden  sm:hidden md:flex lg:flex">
+            <NavLink className="satoshi font-light text-base flex gap-1" to="/">
               Shop
+              <img src={arrowDown} alt="arrow down" />
             </NavLink>
-            <NavLink className="satoshi" to="/">
+            <NavLink className="satoshi font-light text-base" to="/">
               On Sale
             </NavLink>
-            <NavLink className="satoshi" to="/">
+            <NavLink className="satoshi font-light text-base" to="/">
               New Arrivals
             </NavLink>
-            <NavLink className="satoshi" to="/">
+            <NavLink className="satoshi font-light text-base" to="/">
               Brands
             </NavLink>
             <Input
@@ -58,7 +54,7 @@ const Header = () => {
               id="searchInput"
             />
           </nav>
-          <div className="flex gap-3">
+          <div className="flex gap-3 ml-[40px]">
             <button type="button" className="w-6 h-6 md:hidden">
               <img
                 className="w-6 h-6 md:hidden"

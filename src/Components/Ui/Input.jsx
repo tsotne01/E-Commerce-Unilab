@@ -12,7 +12,7 @@ const Input = ({
   };
 
   return (
-    <div className={` flex items-center p-2 ${className}`}>
+    <div className={` flex items-center  ${className}`}>
       <label htmlFor={label} className="flex gap-3">
         <img className="w-6 h-6 cursor-pointer" src={icon} alt="Input Icon" />
         <input
@@ -21,7 +21,7 @@ const Input = ({
           value={value}
           placeholder={placeholder}
           onChange={handleChange}
-          className="focus:outline-none"
+          className="focus:outline-none text-base"
         />
       </label>
     </div>
