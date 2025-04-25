@@ -5,11 +5,13 @@ import logo from "../assets/Logo/Logo.svg";
 import searchIcon from "../assets/Icons/Search-icon.svg";
 import cartIcon from "../assets/Icons/Cart-icon.svg";
 import profileIcon from "../assets/Icons/Profile-icon.svg";
+import burgerMenuIcon from "../assets/Icons/Burger-icon.svg";
+import searchIconBlack from "../assets/Icons/Search-icon-black.svg";
 import Input from "./Ui/Input";
 const Header = () => {
   return (
     <>
-      <div className="bg-black w-full px-[100px] text-white flex justify-center items-center text-xs md:text-sm h-9 satoshi">
+      <div className="bg-black w-full  text-white flex justify-center items-center text-xs md:text-sm h-9 satoshi">
         Sign up and get 20% off to your first order.{" "}
         <NavLink className="satoshi underline ml-1" to="/signup-page">
           Sign Up Now
@@ -19,15 +21,25 @@ const Header = () => {
         </button>
       </div>
       <header className="flex justify-center">
-        <div className="flex gap-x-2 md:gap-x-5 sm:gap-x-3 lg:gap-x-10 items-center py-6">
-          <NavLink className="satoshi mr-10 w-40 h-[22px]" to="/">
-            <img src={logo} alt="Logo" className="min-w-40 min-h-[22px]" />
+        <div className="flex gap-x-2 md:gap-x-3 sm:gap-x-2 lg:gap-x-10 items-center py-6">
+          <button type="button" className="w-6 h-6 md:hidden">
+            <img className="w-6 h-6" src={burgerMenuIcon} alt="menu" />
+          </button>
+          <NavLink
+            className="satoshi mr-10 md:w-40 md:h-[22px] h-4 w-32"
+            to="/"
+          >
+            <img
+              src={logo}
+              alt="Logo"
+              className="md:w-40 md:h-[22px] h-4 w-32"
+            />
           </NavLink>
-          <nav className="items-center gap-x-6 hidden md:gap-x-2 lg:gap-x-4 sm:hidden md:flex">
+          <nav className="items-center gap-x-6 hidden md:gap-x-2 lg:gap-x-4 sm:hidden md:flex lg:flex">
             <NavLink className="satoshi text-base" to="/">
               Shop
             </NavLink>
-            <NavLink className="satoshi" to="/products">
+            <NavLink className="satoshi" to="/">
               On Sale
             </NavLink>
             <NavLink className="satoshi" to="/">
@@ -37,20 +49,28 @@ const Header = () => {
               Brands
             </NavLink>
             <Input
-              className="satoshi search-div py-3 px-4 rounded-[64px] bg-[#F0F0F0] hidden md:block md:w-[200px] lg:w-[500px]"
+              className="satoshi search-div py-3 px-4 rounded-[64px] bg-[#F0F0F0] hidden  lg:block lg:w-[400px] xl:w-[577px]"
               type="search"
-              placeholder="Search"
+              placeholder="Search for products..."
               icon={searchIcon}
               id="searchInput"
             />
           </nav>
-
-          <NavLink className="satoshi" to="/">
-            <img className="min-w-6 min-h-6" src={cartIcon} alt="" />
-          </NavLink>
-          <NavLink className="satoshi" to="/">
-            <img className="min-w-6 min-h-6" src={profileIcon} alt="" />
-          </NavLink>
+          <div className="flex gap-3">
+            <button type="button" className="w-6 h-6 md:hidden">
+              <img
+                className="w-6 h-6 md:hidden"
+                src={searchIconBlack}
+                alt="search"
+              />
+            </button>
+            <NavLink className="satoshi ml-2" to="/">
+              <img className="min-w-6 min-h-6" src={cartIcon} alt="" />
+            </NavLink>
+            <NavLink className="satoshi" to="/">
+              <img className="min-w-6 min-h-6" src={profileIcon} alt="" />
+            </NavLink>
+          </div>
         </div>
       </header>
     </>

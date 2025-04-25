@@ -14,12 +14,11 @@
 
 .satoshi {
     font-family: "Satoshi", sans-serif;
-    font-weight: 400;
+    /* font-weight: 400; */
     font-style: normal;
 }
 
 .integral-cf {
     font-family: "Integral CF", sans-serif;
-    /* font-weight: 400 900; */
     font-style: normal;
 }
