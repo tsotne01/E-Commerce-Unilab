@@ -21,20 +21,22 @@ const Header = () => {
         </button>
       </div>
       <header className="flex justify-center">
-        <div className="flex gap-x-2 md:gap-x-3 sm:gap-x-2 lg:gap-x-10 items-center py-6">
-          <button type="button" className="w-6 h-6 md:hidden">
-            <img className="w-6 h-6" src={burgerMenuIcon} alt="menu" />
-          </button>
-          <NavLink
-            className="satoshi mr-10 md:w-40 md:h-[22px] h-4 w-32"
-            to="/"
-          >
-            <img
-              src={logo}
-              alt="Logo"
-              className="md:w-40 md:h-[22px] h-4 w-32"
-            />
-          </NavLink>
+        <div className="flex w-full justify-around md:justify-center gap-x-2 md:gap-x-3 sm:gap-x-2 lg:gap-x-10 items-center py-6">
+          <div className="flex items-center">
+            <button type="button" className="w-6 h-6 md:hidden">
+              <img className="w-6 h-6" src={burgerMenuIcon} alt="menu" />
+            </button>
+            <NavLink
+              className="satoshi mr-10 md:w-40 md:h-[22px] h-4 w-32"
+              to="/"
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                className="md:w-40 md:h-[22px] h-4 w-32"
+              />
+            </NavLink>
+          </div>
           <nav className="items-center gap-x-6 hidden md:gap-x-2 lg:gap-x-4 sm:hidden md:flex lg:flex">
             <NavLink className="satoshi text-base" to="/">
               Shop

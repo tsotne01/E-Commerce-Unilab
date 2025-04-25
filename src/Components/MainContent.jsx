@@ -7,8 +7,8 @@ const MainContent = () => {
     <main className="flex justify-center">
       <section className="bg-[#F2F0F1] flex justify-center w-full mx-auto">
         <div className="flex justify-center items-center sm:items-center flex-col gap-30 md:flex-row ">
-          <div className="mt-16 md:mt-20 lg:mt-28 max-w-[70%] md:max-w-1/2">
-            <h1 className="font-extrabold text-4xl max-w-[577px] md:text-5xl lg:text-6xl text-wrap  integral-cf  sm:mb-4 md:mb-6 lg:mb-8">
+          <div className="mt-16 md:mt-20 lg:mt-28 max-w-[90%] md:max-w-1/2">
+            <h1 className="font-extrabold text-4xl max-w-[577px] md:text-5xl lg:text-6xl text-wrap  integral-cf mb-5 sm:mb-6 md:mb-8 lg:mb-8">
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </h1>
             <p className="satoshi text-[#00000099] max-w-[577px] block mb-8 ">
@@ -54,6 +54,9 @@ const MainContent = () => {
           </div>
         </div>
       </section>
+      {/* <section>
+        <div className="w-full"></div>
+      </section> */}
     </main>
   );
 };
