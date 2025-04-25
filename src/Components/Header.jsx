@@ -8,6 +8,8 @@ import profileIcon from "../assets/Icons/Profile-icon.svg";
 import burgerMenuIcon from "../assets/Icons/Burger-icon.svg";
 import searchIconBlack from "../assets/Icons/Search-icon-black.svg";
 import Input from "./Ui/Input";
+import NavList from "./Ui/NavList";
+import { NavItem } from "./Ui/NavItem";
 const Header = () => {
   return (
     <>
@@ -32,20 +34,14 @@ const Header = () => {
               </span>
             </NavLink>
           </div>
-          <nav className="items-center gap-x-6 hidden  sm:hidden md:flex lg:flex">
-            <NavLink className="satoshi font-light text-base flex gap-1" to="/">
+          <NavList>
+            <NavItem className=" flex gap-1" to="/">
               Shop
               <img src={arrowDown} alt="arrow down" />
-            </NavLink>
-            <NavLink className="satoshi font-light text-base" to="/">
-              On Sale
-            </NavLink>
-            <NavLink className="satoshi font-light text-base" to="/">
-              New Arrivals
-            </NavLink>
-            <NavLink className="satoshi font-light text-base" to="/">
-              Brands
-            </NavLink>
+            </NavItem>
+            <NavItem to="/">On Sale</NavItem>
+            <NavItem to="/">New Arrivals</NavItem>
+            <NavItem to="/">Brands</NavItem>
             <Input
               className="satoshi search-div py-3 px-4 rounded-[64px] bg-[#F0F0F0] hidden  lg:block lg:w-[400px] xl:w-[577px]"
               type="search"
@@ -53,7 +49,8 @@ const Header = () => {
               icon={searchIcon}
               id="searchInput"
             />
-          </nav>
+          </NavList>
+
           <div className="flex gap-3 ml-[20px] md:ml-[40px]">
             <button type="button" className="w-6 h-6 md:hidden">
               <img
