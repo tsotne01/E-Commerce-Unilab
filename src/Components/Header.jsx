@@ -7,7 +7,7 @@ import cartIcon from "../assets/Icons/Cart-icon.svg";
 import profileIcon from "../assets/Icons/Profile-icon.svg";
 import burgerMenuIcon from "../assets/Icons/Burger-icon.svg";
 import searchIconBlack from "../assets/Icons/Search-icon-black.svg";
-import Input from "./Ui/Input";
+import SearchInput from "./Ui/SearchInput";
 import NavList from "./Ui/NavList";
 import { NavItem } from "./Ui/NavItem";
 const Header = () => {
@@ -42,7 +42,7 @@ const Header = () => {
             <NavItem to="/">On Sale</NavItem>
             <NavItem to="/">New Arrivals</NavItem>
             <NavItem to="/">Brands</NavItem>
-            <Input
+            <SearchInput
               className="satoshi search-div focus:outline-none text-base py-3 px-4 rounded-[64px] bg-[#F0F0F0] hidden  lg:block lg:w-[400px] xl:w-[577px]"
               type="search"
               placeholder="Search for products..."

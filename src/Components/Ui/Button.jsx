@@ -1,4 +1,14 @@
-const Button = ({ children }) => {
+const Button = ({ type, children }) => {
+  if (type === "primary") {
+    return (
+      <button
+        type="button"
+        className="py-4 w-full bg-black text-white rounded-md"
+      >
+        {children}
+      </button>
+    );
+  }
   return (
     <button
       type="button"

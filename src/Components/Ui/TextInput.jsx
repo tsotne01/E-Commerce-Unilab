@@ -12,8 +12,7 @@ const TextInput = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <label className="hidden" htmlFor={id}>
-        {name}
+      <label htmlFor={id}>
         <input
           type={type}
           id={id}
@@ -21,7 +20,7 @@ const TextInput = ({
           value={value}
           placeholder={placeholder}
           onChange={onChange}
-          className={className}
+          className={`${className} w-full`}
         />
         {icon && <img src={icon} alt={name} />}
       </label>
