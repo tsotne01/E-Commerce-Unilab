@@ -2,6 +2,8 @@ import React from "react";
 
 import couple from "../assets/Images/trendy-fashionable.jpg";
 import BrandsCarousel from "./BrandsCarousel";
+import ItemCard from "./Ui/ItemCard";
+import shirtImage from "../assets/Images/shirt.png";
 
 const MainContent = () => {
   return (
@@ -61,6 +63,132 @@ const MainContent = () => {
       </section>
       <section>
         <BrandsCarousel />
+      </section>
+      <section>
+        <div className="flex justify-center flex-col w-full mt-[78px] mb-[64px]">
+          <h1 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
+            NEW ARRIVALS
+          </h1>
+          <div className="mx-auto flex gap-5">
+            <ItemCard
+              item={{
+                id: 1,
+                image: shirtImage,
+                name: "Product 1",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+            <ItemCard
+              item={{
+                id: 2,
+                image: shirtImage,
+                name: "Product 2",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+            <ItemCard
+              item={{
+                id: 3,
+                image: shirtImage,
+                name: "Product 3",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+            <ItemCard
+              item={{
+                id: 4,
+                image: shirtImage,
+                name: "Product 4",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+          </div>
+          <button
+            type="button"
+            className="mx-auto border border-[#0000001A] rounded-[62px] py-4 px-20 cursor-pointer satoshi"
+          >
+            View All
+          </button>
+        </div>
+      </section>
+      <section>
+        <div className="flex justify-center flex-col w-full mt-[78px]">
+          <h1 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
+            top selling{" "}
+          </h1>
+          <div className="mx-auto flex gap-5">
+            <ItemCard
+              item={{
+                id: 1,
+                image: shirtImage,
+                name: "Product 1",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+            <ItemCard
+              item={{
+                id: 2,
+                image: shirtImage,
+                name: "Product 2",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+            <ItemCard
+              item={{
+                id: 3,
+                image: shirtImage,
+                name: "Product 3",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+            <ItemCard
+              item={{
+                id: 4,
+                image: shirtImage,
+                name: "Product 4",
+                title: "T-SHIRT WITH TAPE DETAILS",
+                rating: 4.5,
+                price: 100,
+                oldPrice: 120,
+                discount: 20,
+              }}
+            />
+          </div>
+          <button
+            type="button"
+            className="mx-auto border border-[#0000001A] rounded-[62px] py-4 px-20 cursor-pointer satoshi"
+          >
+            View All
+          </button>
+        </div>
       </section>
     </main>
   );
