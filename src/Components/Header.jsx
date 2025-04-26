@@ -59,7 +59,7 @@ const Header = () => {
                 alt="search"
               />
             </button>
-            <NavLink className="satoshi ml-2" to="/">
+            <NavLink className="satoshi ml-2" to="/cart">
               <img className="min-w-6 min-h-6" src={cartIcon} alt="" />
             </NavLink>
             <NavLink className="satoshi" to="/">
