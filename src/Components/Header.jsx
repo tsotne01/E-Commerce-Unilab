@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import closeIcon from "../assets/Icons/Close-icon.svg";
 import arrowDown from "../assets/Icons/Arrow-down.svg";
@@ -11,14 +11,25 @@ import NavList from "./Ui/NavList";
 import { NavItem } from "./Ui/NavItem";
 import BurgerMenu from "./BurgerMenu";
 const Header = () => {
+  const signupBlock = useRef(null);
+  const handleSignupCloseClick = () => {
+    signupBlock.current.classList.add("hidden");
+  };
   return (
     <>
-      <div className="bg-black w-full  text-white flex justify-center items-center text-xs md:text-sm h-[38px] satoshi">
+      <div
+        ref={signupBlock}
+        className="bg-black w-full  text-white flex justify-center items-center text-xs md:text-sm h-[38px] satoshi"
+      >
         Sign up and get 20% off to your first order.{" "}
         <NavLink className="satoshi underline ml-1" to="/signup-page">
           Sign Up Now
         </NavLink>
-        <button type="button" className="close fixed right-6 hidden md:block">
+        <button
+          onClick={handleSignupCloseClick}
+          type="button"
+          className="close fixed right-6 hidden md:block"
+        >
           <img src={closeIcon} alt="Close" />
         </button>
       </div>
