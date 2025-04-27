@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import closeIcon from "../assets/Icons/Close-icon.svg";
 import arrowDown from "../assets/Icons/Arrow-down.svg";
 import searchIcon from "../assets/Icons/Search-icon.svg";
 import cartIcon from "../assets/Icons/Cart-icon.svg";
 import profileIcon from "../assets/Icons/Profile-icon.svg";
-import burgerMenuIcon from "../assets/Icons/Burger-icon.svg";
 import searchIconBlack from "../assets/Icons/Search-icon-black.svg";
 import SearchInput from "./Ui/SearchInput";
 import NavList from "./Ui/NavList";
 import { NavItem } from "./Ui/NavItem";
+import BurgerMenu from "./BurgerMenu";
 const Header = () => {
   return (
     <>
@@ -25,9 +25,7 @@ const Header = () => {
       <header className="flex justify-center">
         <div className="flex w-[1440px]  md:px-[100px] justify-between pl-6 md:justify-start items-center py-6">
           <div className="flex items-center mr-0 md:mr-10">
-            <button type="button" className="w-6 h-6 mx-4 md:hidden">
-              <img className="w-6 h-6" src={burgerMenuIcon} alt="menu" />
-            </button>
+            <BurgerMenu />
             <NavLink className="satoshi mr-2" to="/">
               <span className="integral-cf font-extrabold text-3xl">
                 Shop.co

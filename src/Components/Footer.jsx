@@ -24,7 +24,7 @@ const Footer = () => {
           </Button>
         </div>
       </div>
-      <div className="w-full bg-[#F0F0F0] px-[100px] pt-[140px] pb-[40px] flex gap-x-[113px]">
+      <div className="w-full bg-[#F0F0F0] md:px-[100px] pt-[140px] pb-[40px] flex flex-col md:flex-row gap-x-[113px]">
         <div className="max-w-[248px]">
           <img src={logo} alt="" />
           <p>

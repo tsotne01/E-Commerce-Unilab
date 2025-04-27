@@ -11,7 +11,11 @@ const Testimonial = ({
       {rating > 0 && (
         <div className="flex gap-x-1">
           {[...Array(rating)].map((item, index) => (
-            <img key={index} src={starImage} alt={`Rating ${index + 1}`} />
+            <img
+              key={Math.random() * 10000}
+              src={starImage}
+              alt={`Rating ${index + 1}`}
+            />
           ))}
         </div>
       )}

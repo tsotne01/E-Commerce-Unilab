@@ -196,7 +196,7 @@ const MainContent = () => {
         </div>
       </section>
       <section>
-        <div className="flex justify-center items-center w-full">
+        <div className="flex justify-center items-center w-full mb-20">
           <div className="w-[100%] md:w-[65%] max-w-[1240px] md:max-h-[840px] bg-[#F0F0F0] rounded-[20px] md:rounded-[40px] flex flex-col justify-center items-center">
             <h2 className="integral-cf mt-[70px] mb-16 mx-auto w-fit font-extrabold text-4xl md:text-5xl">
               BROWSE BY dress STYLE
@@ -242,7 +242,14 @@ const MainContent = () => {
         </div>
       </section>
       <section>
-        <Testimonial />
+        <div className="flex flex-col items-center">
+          <h2 className="integral-cf self-start font-bold text-5xl">
+            OUR HAPPY CUSTOMERS
+          </h2>
+          <div>
+            <Testimonial />
+          </div>
+        </div>
       </section>
     </main>
   );
