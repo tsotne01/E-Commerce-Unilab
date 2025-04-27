@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { generateToken, setUserToLocalStorage } from "../../utils/user";
-// import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { userRegistrationSchema } from "../../Schemas/userSchema.js";
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
@@ -8,6 +7,7 @@ import TextInput from "../../Components/Ui/TextInput";
 import Button from "../../Components/Ui/Button";
 import appleIcon from "../../assets/Icons/Apple-icon.svg";
 import googleIcon from "../../assets/Icons/Google-icon.svg";
+import { NavLink } from "react-router-dom";
 
 const SignUpPage = () => {
   // const navigate = useNavigate();

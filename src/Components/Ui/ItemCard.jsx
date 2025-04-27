@@ -10,9 +10,9 @@ const ItemCard = ({ item }) => {
         src={item.image}
         alt={item.name}
       />
-      <h2 className="text-lg satoshi font-extrabold mb-2">{item.title}</h2>
+      <h2 className="text-lg satoshi font-extrabold mb-2">{item.name}</h2>
       <div className="rating flex gap-1">
-        {Array.from({ length: 5 }, () => (
+        {Array.from({ length: Math.ceil(item.rating) }, () => (
           <img
             key={Math.floor(1000000 * Math.random())}
             src={star}
@@ -29,13 +29,16 @@ const ItemCard = ({ item }) => {
         <span className="satoshi font-extrabold text-[24px]">
           ${item.price}
         </span>
-        <span className="text-[#00000066] line-through text-[24px]">
-          ${item?.oldPrice}
-        </span>
+
         {item.discountPercent > 0 && (
-          <span className="bg-[#FF33331A] inline-block py-[6px] px-[14px] rounded-lg text-red-700 align-middle">
-            -{item?.discountPercent}%
-          </span>
+          <>
+            <span className="text-[#00000066] line-through text-[24px]">
+              ${item?.oldPrice}
+            </span>
+            <span className="bg-[#FF33331A] inline-block py-[6px] px-[14px] rounded-lg text-red-700 align-middle">
+              -{item?.discountPercent}%
+            </span>
+          </>
         )}
       </div>
     </div>

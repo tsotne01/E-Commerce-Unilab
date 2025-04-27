@@ -7,7 +7,7 @@ export const getUser = (userData) => {
   return user;
 };
 
-export const getUserFromLocalStorage = async () => {
+export const getUserFromLocalStorage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   return user;
 };
