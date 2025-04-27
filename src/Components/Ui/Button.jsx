@@ -1,9 +1,19 @@
-const Button = ({ variant, type, className, children }) => {
+const Button = ({ variant, type = "button", className, children }) => {
   if (variant === "primary") {
     return (
       <button
         type={type}
         className={`cursor-pointer py-4 w-full bg-black text-white rounded-md ${className}`}
+      >
+        {children}
+      </button>
+    );
+  }
+  if (variant === "secondary") {
+    return (
+      <button
+        type={type}
+        className={`cursor-pointer bg-white border-1 text-black w-full satoshi py-2 px-4 rounded ${className}`}
       >
         {children}
       </button>

@@ -60,7 +60,7 @@ const MainContent = () => {
           <div className="overflow-hidden mx-auto md:w-1/2">
             <img
               src={couple}
-              className="couple object-center aspect-square h-[448px] md:h-[660px]"
+              className="couple object-center aspect-square block sm:block md:hidden lg:block h-[448px] md:h-[660px]"
               alt="Couple"
             />
           </div>
@@ -197,12 +197,12 @@ const MainContent = () => {
       </section>
       <section>
         <div className="flex justify-center items-center w-full">
-          <div className="w-[90%] md:w-[65%] max-w-[1440px] md:max-h-[840px] bg-[#F0F0F0] rounded-[20px] md:rounded-[40px] flex flex-col justify-center items-center">
+          <div className="w-[100%] md:w-[65%] max-w-[1240px] md:max-h-[840px] bg-[#F0F0F0] rounded-[20px] md:rounded-[40px] flex flex-col justify-center items-center">
             <h2 className="integral-cf mt-[70px] mb-16 mx-auto w-fit font-extrabold text-4xl md:text-5xl">
               BROWSE BY dress STYLE
             </h2>
             <div className="flex items-center justify-center min-h-full">
-              <div className="flex flex-col md:grid md:grid-rows-2 gap-4 w-full max-w-7xl mx-auto overflow-hidden rounded-lg p-4">
+              <div className="flex flex-col md:grid md:grid-rows-2 gap-4 w-full mx-auto overflow-hidden rounded-lg p-4">
                 <div className="grid grid-cols-1 md:grid-cols-[400px_1fr] gap-4 w-full">
                   <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
                     <img
