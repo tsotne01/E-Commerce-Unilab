@@ -26,3 +26,9 @@
 .scrollbar-w-0 {
     scrollbar-width: none;
 }
+
+.fit-section-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: repeat(2, 1fr);
+}

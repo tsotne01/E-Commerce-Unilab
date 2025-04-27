@@ -4,6 +4,10 @@ import couple from "../assets/Images/couple.png";
 import BrandsCarousel from "./BrandsCarousel";
 import ItemCard from "./Ui/ItemCard";
 import shirtImage from "../assets/Images/shirt.png";
+import casualFit from "../assets/Images/Casual-fit.png";
+import formalFit from "../assets/Images/Formal-fit.png";
+import partyFit from "../assets/Images/Party-fit.png";
+import gymFit from "../assets/Images/Gym-fit.png";
 
 const MainContent = () => {
   return (
@@ -66,9 +70,9 @@ const MainContent = () => {
       </section>
       <section>
         <div className="flex justify-center flex-col w-full mt-[78px] mb-[64px]">
-          <h1 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
+          <h2 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
             NEW ARRIVALS
-          </h1>
+          </h2>
           <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0 scroll">
             <ItemCard
               item={{
@@ -129,9 +133,9 @@ const MainContent = () => {
       </section>
       <section>
         <div className="flex justify-center flex-col w-full mt-[78px]">
-          <h1 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
+          <h2 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
             top selling{" "}
-          </h1>
+          </h2>
           <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0">
             <ItemCard
               item={{
@@ -184,10 +188,56 @@ const MainContent = () => {
           </div>
           <button
             type="button"
-            className="mx-auto border border-[#0000001A] rounded-[62px] py-4 px-20 cursor-pointer satoshi"
+            className="mx-auto border border-[#0000001A] rounded-[62px] py-4 px-20 cursor-pointer satoshi mb-20"
           >
             View All
           </button>
+        </div>
+      </section>
+      <section>
+        <div className="flex justify-center items-center w-full">
+          <div className="w-[90%] md:w-[65%] max-w-[1440px] max-h-[840px] bg-[#F0F0F0] rounded-[40px]">
+            <h2 className="integral-cf mt-[70px] mb-16 mx-auto w-fit font-extrabold text-5xl">
+              BROWSE BY dress STYLE
+            </h2>
+            <div className="flex items-center justify-center min-h-full">
+              <div className="flex flex-col md:grid md:grid-rows-2 gap-4 w-full max-w-7xl mx-auto overflow-hidden rounded-lg p-4">
+                <div className="grid grid-cols-1 md:grid-cols-[400px_1fr] gap-4 w-full">
+                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                    <img
+                      src={casualFit}
+                      alt="men with casual fit"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                    <img
+                      src={formalFit}
+                      alt="men with formal fit."
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 w-full">
+                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                    <img
+                      src={partyFit}
+                      alt="women with party fit."
+                      className="h-full object-left rounded-lg"
+                    />
+                  </div>
+                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                    <img
+                      src={gymFit}
+                      alt="men with gym fit."
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

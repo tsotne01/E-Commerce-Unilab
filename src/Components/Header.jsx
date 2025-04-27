@@ -18,7 +18,7 @@ const Header = () => {
         <NavLink className="satoshi underline ml-1" to="/signup-page">
           Sign Up Now
         </NavLink>
-        <button type="button" className="close">
+        <button type="button" className="close fixed right-6 hidden md:block">
           <img src={closeIcon} alt="Close" />
         </button>
       </div>
@@ -62,7 +62,7 @@ const Header = () => {
             <NavLink className="satoshi ml-2" to="/cart">
               <img className="min-w-6 min-h-6" src={cartIcon} alt="" />
             </NavLink>
-            <NavLink className="satoshi" to="/">
+            <NavLink className="satoshi mr-3 sm:mr-0" to="/">
               <img className="min-w-6 min-h-6" src={profileIcon} alt="" />
             </NavLink>
           </div>
