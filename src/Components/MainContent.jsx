@@ -8,6 +8,7 @@ import casualFit from "../assets/Images/Casual-fit.png";
 import formalFit from "../assets/Images/Formal-fit.png";
 import partyFit from "../assets/Images/Party-fit.png";
 import gymFit from "../assets/Images/Gym-fit.png";
+import Testimonial from "./Ui/Testimonial";
 
 const MainContent = () => {
   return (
@@ -59,7 +60,7 @@ const MainContent = () => {
           <div className="overflow-hidden mx-auto md:w-1/2">
             <img
               src={couple}
-              className="couple object-top h-[448px] md:h-[660px]"
+              className="couple object-center aspect-square h-[448px] md:h-[660px]"
               alt="Couple"
             />
           </div>
@@ -196,8 +197,8 @@ const MainContent = () => {
       </section>
       <section>
         <div className="flex justify-center items-center w-full">
-          <div className="w-[90%] md:w-[65%] max-w-[1440px] max-h-[840px] bg-[#F0F0F0] rounded-[40px]">
-            <h2 className="integral-cf mt-[70px] mb-16 mx-auto w-fit font-extrabold text-5xl">
+          <div className="w-[90%] md:w-[65%] max-w-[1440px] md:max-h-[840px] bg-[#F0F0F0] rounded-[20px] md:rounded-[40px] flex flex-col justify-center items-center">
+            <h2 className="integral-cf mt-[70px] mb-16 mx-auto w-fit font-extrabold text-4xl md:text-5xl">
               BROWSE BY dress STYLE
             </h2>
             <div className="flex items-center justify-center min-h-full">
@@ -207,7 +208,7 @@ const MainContent = () => {
                     <img
                       src={casualFit}
                       alt="men with casual fit"
-                      className="w-full h-full object-cover rounded-lg"
+                      className="w-full h-full object-right-top rounded-lg"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
@@ -224,7 +225,7 @@ const MainContent = () => {
                     <img
                       src={partyFit}
                       alt="women with party fit."
-                      className="h-full object-left rounded-lg"
+                      className="h-full object-cover rounded-lg"
                     />
                   </div>
                   <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
@@ -239,6 +240,9 @@ const MainContent = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <Testimonial />
       </section>
     </main>
   );
