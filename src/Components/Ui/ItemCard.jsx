@@ -4,7 +4,7 @@ import star from "../../assets/Images/Star.svg";
 
 const ItemCard = ({ item }) => {
   return (
-    <div className="flex justify-center flex-col mb-[38px]">
+    <div className="flex justify-center flex-col min-w-[250px] mb-[38px]">
       <img
         className="object-cover rounded-lg mb-6 w-[198px] h-[200px] md:w-[295px] md:h-[298px]"
         src={item.image}
@@ -32,9 +32,11 @@ const ItemCard = ({ item }) => {
         <span className="text-[#00000066] line-through text-[24px]">
           ${item?.oldPrice}
         </span>
-        <span className="bg-[#FF33331A] inline-block py-[6px] px-[14px] rounded-lg text-red-700 align-middle">
-          -{item?.discount}%
-        </span>
+        {item.discountPercent > 0 && (
+          <span className="bg-[#FF33331A] inline-block py-[6px] px-[14px] rounded-lg text-red-700 align-middle">
+            -{item?.discountPercent}%
+          </span>
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import closeIcon from "../assets/Icons/Close-icon.svg";
 import arrowDown from "../assets/Icons/Arrow-down.svg";

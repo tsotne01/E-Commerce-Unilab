@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import couple from "../assets/Images/couple.png";
 import BrandsCarousel from "./BrandsCarousel";
@@ -9,8 +9,16 @@ import formalFit from "../assets/Images/Formal-fit.png";
 import partyFit from "../assets/Images/Party-fit.png";
 import gymFit from "../assets/Images/Gym-fit.png";
 import Testimonial from "./Ui/Testimonial";
+import { getProducts } from "../Services/Api/api";
+import { Link } from "react-router-dom";
 
 const MainContent = () => {
+  const [products, setProducts] = useState();
+
+  useEffect(() => {
+    getProducts().then((data) => setProducts(() => data));
+  }, []);
+
   return (
     <main className="flex flex-col justify-center">
       <section className="bg-[#F2F0F1] w-full flex justify-center items-center">
@@ -75,54 +83,14 @@ const MainContent = () => {
             NEW ARRIVALS
           </h2>
           <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0 scroll">
-            <ItemCard
-              item={{
-                id: 1,
-                image: shirtImage,
-                name: "Product 1",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
-            <ItemCard
-              item={{
-                id: 2,
-                image: shirtImage,
-                name: "Product 2",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
-            <ItemCard
-              item={{
-                id: 3,
-                image: shirtImage,
-                name: "Product 3",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
-            <ItemCard
-              item={{
-                id: 4,
-                image: shirtImage,
-                name: "Product 4",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
+            {!!products &&
+              products?.map((item) => (
+                <Link key={item.id} to={`/product-details/${item.id}`}>
+                  <ItemCard
+                    item={Object.assign({}, item, { image: shirtImage })}
+                  />
+                </Link>
+              ))}
           </div>
           <button
             type="button"
@@ -138,54 +106,14 @@ const MainContent = () => {
             top selling{" "}
           </h2>
           <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0">
-            <ItemCard
-              item={{
-                id: 1,
-                image: shirtImage,
-                name: "Product 1",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
-            <ItemCard
-              item={{
-                id: 2,
-                image: shirtImage,
-                name: "Product 2",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
-            <ItemCard
-              item={{
-                id: 3,
-                image: shirtImage,
-                name: "Product 3",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
-            <ItemCard
-              item={{
-                id: 4,
-                image: shirtImage,
-                name: "Product 4",
-                title: "T-SHIRT WITH TAPE DETAILS",
-                rating: 4.5,
-                price: 100,
-                oldPrice: 120,
-                discount: 20,
-              }}
-            />
+            {!!products &&
+              products?.map((item) => (
+                <Link key={item.id} to={`/product-details/${item.id}`}>
+                  <ItemCard
+                    item={Object.assign({}, item, { image: shirtImage })}
+                  />
+                </Link>
+              ))}
           </div>
           <button
             type="button"
