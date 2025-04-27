@@ -6,7 +6,7 @@ const CartPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const user = getUserFromLocalStorage();
-    if (!isValidToken(user.token)) {
+    if (!user || !isValidToken(user.token)) {
       navigate("/login-page", { replace: true });
       return;
     }

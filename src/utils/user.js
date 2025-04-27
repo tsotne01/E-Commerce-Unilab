@@ -9,15 +9,16 @@ export const getUser = (userData) => {
 
 export const getUserFromLocalStorage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) return null;
   return user;
 };
 
-export const setUserToLocalStorage = async (user) => {
-  await localStorage.setItem("user", JSON.stringify(user));
+export const setUserToLocalStorage = (user) => {
+  localStorage.setItem("user", JSON.stringify(user));
 };
 
-export const removeUserFromLocalStorage = async () => {
-  await localStorage.removeItem("user");
+export const removeUserFromLocalStorage = () => {
+  localStorage.removeItem("user");
 };
 
 export const isValidUser = (user) => {

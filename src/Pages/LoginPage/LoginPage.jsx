@@ -19,6 +19,7 @@ const LoginPage = () => {
   });
   const handleLoginSubmit = (data) => {
     const user = getUserFromLocalStorage();
+    if (!user) return;
     if (data.email === user.email && data.password === user.password) {
       navigate("/");
       return;
