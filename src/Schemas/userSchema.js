@@ -1,7 +1,9 @@
 import { z } from "zod";
 
 export const userRegistrationSchema = z.object({
-  fullName: z.string().min(1).max(100),
+  fullName: z
+    .string()
+    .min(1, { message: "name must be at least 1 characters" }),
   lastName: z
     .string()
     .min(1, { message: "Last name must be at least 1 characters" })
@@ -17,4 +19,9 @@ export const userRegistrationSchema = z.object({
   checkbox: z.boolean().refine((value) => value === true, {
     message: "You must agree to the terms and conditions",
   }),
+});
+
+export const loginSchema = z.object({
+  email: z.string().min(1, { message: "email is required." }),
+  password: z.string().min(1, { message: "password is required." }),
 });

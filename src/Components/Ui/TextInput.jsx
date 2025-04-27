@@ -9,6 +9,7 @@ const TextInput = ({
   onChange,
   className,
   icon,
+  ...rest
 }) => {
   return (
     <div className="flex flex-col">
@@ -21,6 +22,7 @@ const TextInput = ({
           placeholder={placeholder}
           onChange={onChange}
           className={`${className} w-full`}
+          {...rest}
         />
         {icon && <img src={icon} alt={name} />}
       </label>
