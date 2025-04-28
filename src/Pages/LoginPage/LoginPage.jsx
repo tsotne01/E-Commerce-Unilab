@@ -19,6 +19,7 @@ const LoginPage = () => {
   });
   const handleLoginSubmit = (data) => {
     const user = getUserFromLocalStorage();
+
     if (!user) return;
     if (data.email === user.email && data.password === user.password) {
       navigate("/");
@@ -68,6 +69,7 @@ const LoginPage = () => {
             or
             <span className="inline-block w-[48%] border-[1px] opacity-80 border-[#04030866] " />
           </span>
+
           <button
             type="button"
             className="border-[#040308] border-1 flex justify-center items-center py-4 rounded-lg w-full mb-5"

@@ -170,11 +170,18 @@ const MainContent = () => {
         </div>
       </section>
       <section>
-        <div className="flex flex-col items-center">
-          <h2 className="integral-cf self-start font-bold text-5xl">
+        <div className="flex flex-col mx-auto max-w-[1220px] overflow-hidden">
+          <h2 className="integral-cf font-bold self-start text-5xl text-center mb-10">
             OUR HAPPY CUSTOMERS
           </h2>
-          <div>
+          <div className="flex gap-x-5 scrollbar-w-0 max-w-[1220px] overflow-scroll">
+            <Testimonial />
+            <Testimonial />
+            <Testimonial />
+            <Testimonial />
+            <Testimonial />
+            <Testimonial />
+            <Testimonial />
             <Testimonial />
           </div>
         </div>

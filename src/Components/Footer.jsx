@@ -9,7 +9,7 @@ import { NavItem } from "./Ui/NavItem";
 const Footer = () => {
   return (
     <footer>
-      <div className="w-[90%] max-w[1240px] mx-auto flex-col gap-x-3 gap-y-[14px] md:flex-row flex justify-between items-center py-9 px-16 min-h-[180px] bg-black rounded-[20px]">
+      <div className="translate-y-[50%] w-[90%] max-w[1240px] mx-auto flex-col gap-x-3 gap-y-[14px] md:flex-row flex justify-between items-center py-9 px-16 min-h-[180px] bg-black rounded-[20px]">
         <h2 className="text-white text-[32px] md:text-4xl font-extrabold integral-cf max-w-[551px]">
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
         </h2>
