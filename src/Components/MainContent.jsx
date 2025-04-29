@@ -9,14 +9,19 @@ import formalFit from "../assets/Images/Formal-fit.png";
 import partyFit from "../assets/Images/Party-fit.png";
 import gymFit from "../assets/Images/Gym-fit.png";
 import Testimonial from "./Ui/Testimonial";
-import { getProducts } from "../Services/Api/api";
+import { getProducts, getTestimonials } from "../Services/Api/api";
 import { Link } from "react-router-dom";
 
 const MainContent = () => {
   const [products, setProducts] = useState();
+  const [testimonials, setTestimonials] = useState();
 
   useEffect(() => {
     getProducts().then((data) => setProducts(() => data));
+  }, []);
+
+  useEffect(() => {
+    getTestimonials().then((data) => setTestimonials(() => data));
   }, []);
 
   return (
@@ -78,7 +83,7 @@ const MainContent = () => {
         <BrandsCarousel />
       </section>
       <section>
-        <div className="flex justify-center flex-col w-full mt-[78px] mb-[64px]">
+        <div className="flex justify-center flex-col w-full mt-[78px] mb-[64px] overflow-hidden">
           <h2 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
             NEW ARRIVALS
           </h2>
@@ -175,14 +180,10 @@ const MainContent = () => {
             OUR HAPPY CUSTOMERS
           </h2>
           <div className="flex gap-x-5 scrollbar-w-0 max-w-[1220px] overflow-scroll">
-            <Testimonial />
-            <Testimonial />
-            <Testimonial />
-            <Testimonial />
-            <Testimonial />
-            <Testimonial />
-            <Testimonial />
-            <Testimonial />
+            {testimonials?.length &&
+              testimonials.map((testimonial) => (
+                <Testimonial key={testimonial.id} testimonial={testimonial} />
+              ))}
           </div>
         </div>
       </section>
