@@ -9,13 +9,13 @@ import { NavItem } from "./Ui/NavItem";
 const Footer = () => {
   return (
     <footer>
-      <div className="translate-y-[50%] w-[90%] max-w[1240px] mx-auto flex-col gap-x-3 gap-y-[14px] md:flex-row flex justify-between items-center py-9 px-16 min-h-[180px] bg-black rounded-[20px]">
-        <h2 className="text-white text-[32px] md:text-4xl font-extrabold integral-cf max-w-[551px]">
+      <div className="max-w-[1440px] w-[95%] lg:px-[65px] md:justify-between pl-6 translate-y-[50%] max-w[1240px] mx-auto flex-col gap-x-3 gap-y-[14px] md:flex-row flex justify-between items-center py-9 px-16 min-h-[180px] bg-black rounded-[20px]">
+        <h2 className="text-white text-[32px] mb-8 md:text-4xl font-extrabold integral-cf max-w-[551px]">
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
         </h2>
         <div>
           <Input
-            className="bg-white px-3 py-2 rounded-[62px] mb-3"
+            className="bg-white w-full md:w-auto px-3 py-2 rounded-[62px] mb-3"
             placeholder="Enter your email address"
             icon={emailIcon}
           />
