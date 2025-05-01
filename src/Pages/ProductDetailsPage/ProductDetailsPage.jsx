@@ -3,13 +3,15 @@ import productPhoto1 from "../../assets/Images/Product_image_1.png";
 import productPhoto2 from "../../assets/Images/Product_image_2.png";
 import productPhoto3 from "../../assets/Images/Product_image_3.png";
 import { useEffect, useState } from "react";
-import { getProductById } from "../../Services/Api/api";
+import { getProductById, getTestimonialById } from "../../Services/Api/api";
 import starIcon from "../../assets/Images/Star.svg";
+import Testimonial from "../../Components/Ui/Testimonial";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [currentPhoto, setCurrentPhoto] = useState(productPhoto1);
   const [currentProduct, setCurrentProduct] = useState();
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     // Fetch product details based on id
@@ -21,15 +23,22 @@ const ProductDetailsPage = () => {
       .catch((error) => {
         console.error("Error fetching product details:", error);
       });
+    getTestimonialById(id)
+      .then((reviews) => {
+        setReviews(reviews);
+      })
+      .catch((error) => {
+        console.error("Error fetching reviews:", error);
+      });
   }, [id]);
 
   return (
-    <main className="flex max-w-[1440px] w-full lg:px-[65px] md:justify-between pl-6  items-center justify-center mx-auto">
-      <div className="md:flex ">
+    <main className="flex max-w-[1440px] w-full lg:px-[65px] pl-6 flex-col justify-center mx-auto">
+      <div className="md:flex mb-20">
         <div className="max-w-fit flex flex-col justify-center items-center md:flex-col lg:flex-row-reverse gap-3 mr-10">
           <div className="bg-[#F0EEED] rounded-[40px]">
             <img
-              className="w-[354px] min-w-[354px] min-h-[290px] md:min-h-[530px] md:min-w-[444px] object-center"
+              className="w-[354px] min-w-[354px] min-h-[290px] md:min-h-[530px] md:min-w-[444px] rounded-[40px] object-center"
               src={currentPhoto}
               alt="t-shirt"
             />
@@ -211,6 +220,12 @@ const ProductDetailsPage = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="flex flex-wrap gap-5">
+        {reviews?.length &&
+          reviews.map((review) => (
+            <Testimonial testimonial={review} key={review.id} />
+          ))}
       </div>
     </main>
   );

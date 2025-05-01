@@ -27,28 +27,6 @@ export const getProductById = async (id) => {
   }
 };
 
-export const getAllReviews = async () => {
-  try {
-    const response = await fetch(`${BASE_URL}/feedback`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching reviews:", error);
-    return [];
-  }
-};
-
-export const getReviews = async (productId) => {
-  try {
-    const response = await fetch(`${BASE_URL}/feedback/${productId}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching reviews:", error);
-    return [];
-  }
-};
-
 export const getTestimonials = async () => {
   try {
     const response = await fetch(`${BASE_URL}/feedback`);
@@ -62,9 +40,10 @@ export const getTestimonials = async () => {
 
 export const getTestimonialById = async (id) => {
   try {
-    const response = await fetch(`${BASE_URL}/testimonials/${id}`);
+    const response = await fetch(`${BASE_URL}/feedback`);
     const data = await response.json();
-    return data;
+
+    return data.filter((d) => d.product_id === id);
   } catch (error) {
     console.error("Error fetching testimonial:", error);
     return null;
