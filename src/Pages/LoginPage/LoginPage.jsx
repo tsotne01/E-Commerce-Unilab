@@ -29,7 +29,7 @@ const LoginPage = () => {
   };
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className="md:w-[554px] sm:w-[400px] w-[250px] sm:py-[150px] px-[45px] md:py-[220px] sm:px-[73px] box-shadow">
+      <div className="md:w-[554px] sm:w-[400px] sm:py-[150px] md:py-[220px] sm:px-[73px] box-shadow">
         <div className="mb-[100px]">
           <h1 className="font-bold text-4xl">Welcome Back</h1>
           <p>
