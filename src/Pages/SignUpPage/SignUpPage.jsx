@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   generateToken,
   getUserFromLocalStorage,
@@ -13,14 +13,12 @@ import appleIcon from "../../assets/Icons/Apple-icon.svg";
 import googleIcon from "../../assets/Icons/Google-icon.svg";
 import { NavLink } from "react-router-dom";
 import MessageBox from "../../Components/MessageBox.jsx";
+import { messageContext } from "../../Services/Providers/MessageContext.jsx";
 
 const SignUpPage = () => {
   // const navigate = useNavigate();
 
   const [isRegistered, setIsRegistered] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -28,31 +26,26 @@ const SignUpPage = () => {
   } = useForm({
     resolver: zodResolver(userRegistrationSchema),
   });
+  const { setMessageSuccess, setMessageError } = useContext(messageContext);
 
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
     const token = generateToken();
     const user = getUserFromLocalStorage();
-    if (user.email === email) {
+    if (user?.email === email) {
       console.log("User already exists");
-      setSuccess(false);
-      setMessage("User already exists");
-      setShowMessage(true);
+      setMessageError("User already exists");
       return;
     }
     console.log(data);
     setUserToLocalStorage({ email, password, token });
     setIsRegistered(true);
-    setSuccess(true);
-    setMessage("User registered successfully");
-    setShowMessage(true);
     console.log("User registered successfully");
   };
-  if (showMessage) {
-    setTimeout(() => setShowMessage(false), 1500);
+  if (isRegistered) {
+    setMessageSuccess("Registered Succesfully!");
   }
-
   if (isRegistered) {
     return (
       <NavLink to="/login-page" className="text-blue-500 hover:text-blue-700">
@@ -63,9 +56,6 @@ const SignUpPage = () => {
 
   return (
     <>
-      {showMessage && (
-        <MessageBox type={success ? "success" : "error"} message={message} />
-      )}
       <div className="flex flex-col justify-center items-center gap-y-3 h-screen">
         <div className="mx-auto w-[320px] sm:w-96 md:w-[400px] lg:w-[554px]">
           <h1 className="text-[#040308] text-3xl font-bold mb-[10px]">
