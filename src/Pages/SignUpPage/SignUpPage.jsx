@@ -12,7 +12,6 @@ import Button from "../../Components/Ui/Button";
 import appleIcon from "../../assets/Icons/Apple-icon.svg";
 import googleIcon from "../../assets/Icons/Google-icon.svg";
 import { NavLink } from "react-router-dom";
-import MessageBox from "../../Components/MessageBox.jsx";
 import { messageContext } from "../../Services/Providers/MessageContext.jsx";
 
 const SignUpPage = () => {

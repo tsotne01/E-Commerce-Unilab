@@ -1,9 +1,10 @@
-const Button = ({ variant, type = "button", className, children }) => {
+const Button = ({ variant, type = "button", className, children, onClick }) => {
   if (variant === "primary") {
     return (
       <button
         type={type}
-        className={`cursor-pointer py-4 w-full bg-black text-white rounded-md ${className}`}
+        className={`cursor-pointer py-4 w-full bg-black text-white rounded ${className}`}
+        onClick={onClick}
       >
         {children}
       </button>

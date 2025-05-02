@@ -1,6 +1,5 @@
 import React from "react";
 import Filters from "./Filters";
-import Products from "./Products";
 
 const CategoryPageMainContent = () => {
   return (
@@ -9,7 +8,6 @@ const CategoryPageMainContent = () => {
         <aside className="flex">
           <Filters />
         </aside>
-        <Products />
       </div>
     </main>
   );

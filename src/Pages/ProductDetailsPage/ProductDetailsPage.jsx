@@ -2,16 +2,29 @@ import { useParams } from "react-router-dom";
 import productPhoto1 from "../../assets/Images/Product_image_1.png";
 import productPhoto2 from "../../assets/Images/Product_image_2.png";
 import productPhoto3 from "../../assets/Images/Product_image_3.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getProductById, getTestimonialById } from "../../Services/Api/api";
 import starIcon from "../../assets/Images/Star.svg";
 import Testimonial from "../../Components/Ui/Testimonial";
+import Button from "../../Components/Ui/Button";
+import decrementIcon from "../../assets/Icons/Decrement-icon.svg";
+import incrementIcon from "../../assets/Icons/Increment-icon.svg";
+import { CartContext } from "../../Services/Providers/CartContext";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [currentPhoto, setCurrentPhoto] = useState(productPhoto1);
   const [currentProduct, setCurrentProduct] = useState();
   const [reviews, setReviews] = useState([]);
+  const [numberOfItems, setNumberOfItems] = useState(0);
+
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddtoCart = () => {
+    if (numberOfItems === 0) return;
+    console.log({ currentProduct, numberOfItems });
+    addToCart({ currentProduct, numberOfItems });
+  };
 
   useEffect(() => {
     // Fetch product details based on id
@@ -35,7 +48,7 @@ const ProductDetailsPage = () => {
   return (
     <main className="flex max-w-[1440px] w-full lg:px-[65px] pl-6 flex-col justify-center mx-auto">
       <div className="md:flex mb-20">
-        <div className="max-w-fit flex flex-col justify-center items-center md:flex-col lg:flex-row-reverse gap-3 mr-10">
+        <div className="max-w-fit mx-auto md:mx-0 flex flex-col justify-center items-center md:flex-col lg:flex-row-reverse gap-3 md:mr-10">
           <div className="bg-[#F0EEED] rounded-[40px]">
             <img
               className="w-[354px] min-w-[354px] min-h-[290px] md:min-h-[530px] md:min-w-[444px] rounded-[40px] object-center"
@@ -161,7 +174,7 @@ const ProductDetailsPage = () => {
                     Choose Size{" "}
                   </h3>
                 </label>
-                <div className="flex gap-2 flex-wrap sm:gap-3 md:gap-4 lg:gap-6 pb-6 border-b-1 border-[#0000001A]">
+                <div className="flex gap-2 flex-wrap sm:gap-3 md:gap-4 lg:gap-6 pb-6 mb-6 border-b-1 border-[#0000001A]">
                   <label
                     htmlFor="size1"
                     className="bg-zinc-100 rounded-[62px] px-6 py-3 whitespace-nowrap
@@ -215,6 +228,31 @@ const ProductDetailsPage = () => {
                       type="radio"
                     />
                   </label>
+                </div>
+                <div className="flex gap-5">
+                  <div className="bg-[#F0F0F0] p-3.5 rounded-[62px] flex items-center justify-between min-w-27 max-w-44 md:w-44 w-28">
+                    <button
+                      type="button"
+                      onClick={() => setNumberOfItems((prev) => prev - 1)}
+                    >
+                      <img src={decrementIcon} alt="decrement" />
+                    </button>
+                    <span>{numberOfItems}</span>
+                    <button
+                      type="button"
+                      onClick={() => setNumberOfItems((prev) => prev + 1)}
+                    >
+                      {" "}
+                      <img src={incrementIcon} alt="increment" />
+                    </button>
+                  </div>
+                  <Button
+                    onClick={handleAddtoCart}
+                    variant="primary"
+                    className="rounded-[62px]"
+                  >
+                    Add to Cart
+                  </Button>
                 </div>
               </div>
             </div>

@@ -6,11 +6,13 @@ const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    if (!cartItems.includes(item)) {
+      setCartItems((prev) => [...prev, item]);
+    }
   };
 
   const removeFromCart = (itemId) => {
-    setCartItems(cartItems.filter((item) => item.id !== itemId));
+    setCartItems((prev) => prev.filter((item) => item.id !== itemId));
   };
 
   const clearCart = () => {
