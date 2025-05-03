@@ -16,10 +16,10 @@ const months = [
   "December",
 ];
 
-const Testimonial = ({ testimonial }) => {
+const Testimonial = ({ testimonial,className }) => {
   const { rating, author_name, content, creation_date } = testimonial;
   return (
-    <div className="flex flex-col justify-between w-80 md:w-[400px] px-7 py-8 max-w-[400px] min-w-[320px] border-1 border-[#0000001A] rounded-[20px] ">
+    <div className={`flex flex-col justify-between w-80 md:w-[400px] px-7 py-8 max-w-[400px] min-w-[320px] border-1 border-[#0000001A] rounded-[20px] ${className} `}>
       <div>
         {rating > 0 && (
           <div className="flex gap-x-1 mb-3">

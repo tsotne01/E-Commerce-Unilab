@@ -1,15 +1,18 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import productPhoto1 from "../../assets/Images/Product_image_1.png";
 import productPhoto2 from "../../assets/Images/Product_image_2.png";
 import productPhoto3 from "../../assets/Images/Product_image_3.png";
 import { useContext, useEffect, useState } from "react";
-import { getProductById, getTestimonialById } from "../../Services/Api/api";
+import { getProductById, getProducts, getTestimonialById } from "../../Services/Api/api";
 import starIcon from "../../assets/Images/Star.svg";
 import Testimonial from "../../Components/Ui/Testimonial";
 import Button from "../../Components/Ui/Button";
 import decrementIcon from "../../assets/Icons/Decrement-icon.svg";
 import incrementIcon from "../../assets/Icons/Increment-icon.svg";
 import { CartContext } from "../../Services/Providers/CartContext";
+import shirtImage from "../../assets/Images/shirt.png"
+import ItemCard from "../../Components/Ui/ItemCard";
+import arrowRightGray from "../../assets/Icons/arrow-right-gray.svg"
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -17,6 +20,7 @@ const ProductDetailsPage = () => {
   const [currentProduct, setCurrentProduct] = useState();
   const [reviews, setReviews] = useState([]);
   const [numberOfItems, setNumberOfItems] = useState(0);
+  const [products, setProducts] = useState();
 
   const { addToCart } = useContext(CartContext);
 
@@ -27,8 +31,6 @@ const ProductDetailsPage = () => {
   };
 
   useEffect(() => {
-    // Fetch product details based on id
-    // Example: setCurrentProduct(productData);
     getProductById(id)
       .then((product) => {
         setCurrentProduct(product);
@@ -36,6 +38,16 @@ const ProductDetailsPage = () => {
       .catch((error) => {
         console.error("Error fetching product details:", error);
       });
+
+  }, [id]);
+
+  useEffect(() => {
+    getProducts()
+      .then((products) => setProducts(products.slice(0, 4)))
+      .catch((err) => console.error(err));
+  }, [])
+
+  useEffect(() => {
     getTestimonialById(id)
       .then((reviews) => {
         setReviews(reviews);
@@ -45,8 +57,16 @@ const ProductDetailsPage = () => {
       });
   }, [id]);
 
+
   return (
     <main className="flex max-w-[1440px] w-full lg:px-[65px] pl-6 flex-col justify-center mx-auto">
+      <div className="flex items-center gap-x-1 text-[#00000099] text-base mb-9 border-t-1 border-[#0000001A] pt-6">
+        <span className="satoshi flex items-center">Home <img className="inline-block" src={arrowRightGray} alt="arrow right" /> 
+        </span> 
+        <span className="flex items-center">Shop <img className="inline-block" src={arrowRightGray} alt="arrow right" /></span>  
+        <span className="flex items-center">Men <img className="inline-block" src={arrowRightGray} alt="arrow right" /></span> 
+        <span className="text-black">T-shirts</span>
+      </div>
       <div className="md:flex mb-20">
         <div className="max-w-fit mx-auto md:mx-0 flex flex-col justify-center items-center md:flex-col lg:flex-row-reverse gap-3 md:mr-10">
           <div className="bg-[#F0EEED] rounded-[40px]">
@@ -142,7 +162,7 @@ const ProductDetailsPage = () => {
                       type="radio"
                     />
                   </label>
-
+                  All Reviews
                   <label
                     htmlFor="color2"
                     className="bg-blue-200 rounded-full w-9 h-9"
@@ -259,11 +279,42 @@ const ProductDetailsPage = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-wrap gap-5">
+      <div className="tabs mb-6">
+        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1 border-[#0000001A]">Product Details</span>
+        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1">Rating & Reviews</span>
+        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1 border-[#0000001A]">FAQ</span>
+
+
+      </div>
+      <div className="mb-6 flex justify-between">
+        <h3 className="satoshi font-bold text-2xl">All Reviews <span className="text-base text-[#00000099] font-medium">({reviews.length})</span></h3>
+        <div>
+          <button>Latest</button>
+          <button>Write a review</button>
+
+        </div>
+      </div>
+      <div className="flex flex-wrap gap-5 mb-9">
         {reviews?.length &&
           reviews.map((review) => (
-            <Testimonial testimonial={review} key={review.id} />
+            <Testimonial className="w-1/2" testimonial={review} key={review.id} />
           ))}
+      </div>
+      <Button variant="secondary" className="md:w-[230px] w-44 mx-auto rounded-[62px] mb-16" role="button">Load More Reviews</Button>
+      <div>
+        <h2 className="text-center integral-cf font-extrabold text-5xl mb-14">You might also like</h2>
+        <div>
+          <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0 scroll">
+            {!!products &&
+              products?.map((item) => (
+                <Link key={item.id} to={`/product-details/${item.id}`}>
+                  <ItemCard
+                    item={Object.assign({}, item, { image: shirtImage })}
+                  />
+                </Link>
+              ))}
+          </div>
+        </div>
       </div>
     </main>
   );
