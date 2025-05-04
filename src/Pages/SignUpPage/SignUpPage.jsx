@@ -108,6 +108,7 @@ const SignUpPage = () => {
             <TextInput
               label="Password"
               id="password"
+              type="password"
               name="password"
               className="flex-col border border-solid border-[#04030899] rounded-[5px] py-3 px-5 mb-5"
               placeholder="Password"

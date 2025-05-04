@@ -6,9 +6,11 @@ const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    if (!cartItems.includes(item)) {
-      setCartItems((prev) => [...prev, item]);
-    }
+
+    setCartItems((prev) => {
+      return [...prev,item];
+    });
+
   };
 
   const removeFromCart = (itemId) => {
@@ -18,19 +20,19 @@ const CartProvider = ({ children }) => {
   const clearCart = () => {
     setCartItems([]);
   };
-  const setNumberOfItems = (itemId,newItemNum)=>{
+  const setNumberOfItems = (itemId, newItemNum) => {
     // setCartItems((prev) => {
     //   console.log(prev.filter((item) => item.id === itemId));
     //   console.log(newItemNum);
     //   // return [...prev,prev.filter((item) => item.id === itemId)];
     // });
-    console.log(itemId,newItemNum)
+    console.log(itemId, newItemNum)
     console.log(cartItems);
   }
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart,setNumberOfItems }}
+      value={{ cartItems, addToCart, removeFromCart, clearCart, setNumberOfItems }}
     >
       {children}
     </CartContext.Provider>

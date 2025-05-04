@@ -259,7 +259,7 @@ const ProductDetailsPage = () => {
                   <div className="bg-[#F0F0F0] p-3.5 rounded-[62px] flex items-center justify-between min-w-27 max-w-44 md:w-44 w-28">
                     <button
                       type="button"
-                      onClick={() => setNumberOfItems((prev) => prev - 1)}
+                      onClick={() => setNumberOfItems((prev) => prev - 1 > 0 ? prev - 1 : 0)}
                     >
                       <img src={decrementIcon} alt="decrement" />
                     </button>
