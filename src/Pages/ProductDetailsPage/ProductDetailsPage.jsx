@@ -13,6 +13,7 @@ import { CartContext } from "../../Services/Providers/CartContext";
 import shirtImage from "../../assets/Images/shirt.png"
 import ItemCard from "../../Components/Ui/ItemCard";
 import arrowRightGray from "../../assets/Icons/arrow-right-gray.svg"
+import { messageContext } from "../../Services/Providers/MessageContext";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const ProductDetailsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [numberOfItems, setNumberOfItems] = useState(0);
   const [products, setProducts] = useState();
+  const {setMessageSuccess} = useContext(messageContext)
 
   const { addToCart } = useContext(CartContext);
 
@@ -28,6 +30,7 @@ const ProductDetailsPage = () => {
     if (numberOfItems === 0) return;
     console.log({ ...currentProduct, numberOfItems });
     addToCart({ ...currentProduct, numberOfItems });
+    setMessageSuccess("Succesfully added to Cart!")
   };
 
   useEffect(() => {
@@ -56,11 +59,10 @@ const ProductDetailsPage = () => {
         console.error("Error fetching reviews:", error);
       });
   }, [id]);
-  
+
   useEffect(()=>{
     setNumberOfItems(0)
   },[id])
-
 
   return (
     <main className="flex max-w-[1440px] w-full lg:px-[65px] pl-6 flex-col justify-center mx-auto">

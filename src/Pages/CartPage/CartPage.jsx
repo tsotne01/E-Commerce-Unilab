@@ -19,7 +19,7 @@ const CartPage = () => {
       return;
     }
   });
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, removeFromCart,setNumberOfItems} = useContext(CartContext);
   console.log(cartItems);
   return (
     <main className="max-w-[1440px] mx-auto">
@@ -48,11 +48,12 @@ const CartPage = () => {
                 </div>
               </div>
               <div className="flex flex-col justify-between mb-6">
-                <button role="button" className="self-end">
+                <button onClick={()=> removeFromCart(item.id)} role="button" className="self-end">
                   <img src={deleteIcon} alt="delete icon" />
                 </button>
                 <div className="bg-[#F0F0F0]  p-3.5 rounded-[62px] flex items-center justify-between min-w-27 max-w-44 md:w-44 w-28">
                   <button
+                  onClick={()=> setNumberOfItems(item.id, item.numberOfItems - 1)}
                     type="button"
                   >
                     <img src={decrementIcon} alt="decrement" />
@@ -60,6 +61,8 @@ const CartPage = () => {
                   <span>{item.numberOfItems}</span>
                   <button
                     type="button"
+                    onClick={()=> setNumberOfItems(item.id, item.numberOfItems + 1)}
+
                   >
                     {" "}
                     <img src={incrementIcon} alt="increment" />
