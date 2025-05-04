@@ -26,8 +26,8 @@ const ProductDetailsPage = () => {
 
   const handleAddtoCart = () => {
     if (numberOfItems === 0) return;
-    console.log({ currentProduct, numberOfItems });
-    addToCart({ currentProduct, numberOfItems });
+    console.log({ ...currentProduct, numberOfItems });
+    addToCart({ ...currentProduct, numberOfItems });
   };
 
   useEffect(() => {
@@ -56,6 +56,10 @@ const ProductDetailsPage = () => {
         console.error("Error fetching reviews:", error);
       });
   }, [id]);
+  
+  useEffect(()=>{
+    setNumberOfItems(0)
+  },[id])
 
 
   return (
