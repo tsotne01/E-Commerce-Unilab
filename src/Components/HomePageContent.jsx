@@ -135,39 +135,49 @@ const MainContent = () => {
               BROWSE BY dress STYLE
             </h2>
             <div className="flex items-center justify-center min-h-full">
-              <div className="flex flex-col md:grid md:grid-rows-2 gap-4 w-full mx-auto overflow-hidden rounded-lg p-4">
+              <div className="flex flex-coshirtImagel md:grid md:grid-rows-2 gap-4 w-full mx-auto overflow-hidden rounded-lg p-4">
                 <div className="grid grid-cols-1 md:grid-cols-[400px_1fr] gap-4 w-full">
-                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
-                    <img
-                      src={casualFit}
-                      alt="men with casual fit"
-                      className="w-full h-full object-right-top rounded-lg"
-                    />
-                  </div>
-                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
-                    <img
-                      src={formalFit}
-                      alt="men with formal fit."
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+                  <Link to="/category/casual">
+                    <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                      <img
+                        src={casualFit}
+                        alt="men with casual fit"
+                        className="w-full h-full object-right-top rounded-lg"
+                      />
+                    </div>
+                  </Link>
+                  <Link to="/category/formal">
+                    <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                      <img
+                        src={formalFit}
+                        alt="men with formal fit."
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </Link>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 w-full">
-                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
-                    <img
-                      src={partyFit}
-                      alt="women with party fit."
-                      className="h-full object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
-                    <img
-                      src={gymFit}
-                      alt="men with gym fit."
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+
+                  <Link to="/category/party">
+                    <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                      <img
+                        src={partyFit}
+                        alt="women with party fit."
+                        className="h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </Link>
+                  <Link to="/category/gym">
+                    <div className="overflow-hidden rounded-lg aspect-square md:aspect-auto">
+                      <img
+                        src={gymFit}
+                        alt="men with gym fit."
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </Link>
+
                 </div>
               </div>
             </div>
