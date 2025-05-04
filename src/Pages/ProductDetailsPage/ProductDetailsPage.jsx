@@ -162,7 +162,7 @@ const ProductDetailsPage = () => {
                       type="radio"
                     />
                   </label>
-                  All Reviews
+                
                   <label
                     htmlFor="color2"
                     className="bg-blue-200 rounded-full w-9 h-9"
@@ -288,9 +288,9 @@ const ProductDetailsPage = () => {
       </div>
       <div className="mb-6 flex justify-between">
         <h3 className="satoshi font-bold text-2xl">All Reviews <span className="text-base text-[#00000099] font-medium">({reviews.length})</span></h3>
-        <div>
-          <button>Latest</button>
-          <button>Write a review</button>
+        <div className="flex gap-x-2.5 md:w-80">
+          <Button className="border-0 border-transparent bg-[#F0F0F0] rounded-[62px] px-5 py-4" role="button"><span>Latest</span></Button>
+          <Button variant="primary" className="rounded-[64px]" role="button">Write a review</Button>
 
         </div>
       </div>

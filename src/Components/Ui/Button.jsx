@@ -24,7 +24,7 @@ const Button = ({ variant, type = "button", className, children, onClick }) => {
     return (
       <button
         type={type}
-        className={`cursor-pointer bg-white border-1 text-black w-full font-bold py-2 px-4 rounded ${className}`}
+        className={`cursor-pointer bg-white border-1 text-black w-full font-bold rounded ${className}`}
       >
         {children}
       </button>
@@ -33,7 +33,7 @@ const Button = ({ variant, type = "button", className, children, onClick }) => {
   return (
     <button
       type={type}
-      className={`cursor-pointerbg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${className}`}
+      className={`cursor-pointerpy-2 px-4 ${className}`}
     >
       {children}
     </button>

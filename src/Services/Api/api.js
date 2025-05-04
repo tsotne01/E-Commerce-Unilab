@@ -16,6 +16,17 @@ export const getProducts = async () => {
   }
 };
 
+export const getProductByCategory = async (category) => {
+  try {
+    const response = await fetch(`${BASE_URL}/products`);
+    const data = await response.json();
+    return data.filter(item=> item.category === category);
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null;
+  }
+}
+
 export const getProductById = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/products/${id}`);

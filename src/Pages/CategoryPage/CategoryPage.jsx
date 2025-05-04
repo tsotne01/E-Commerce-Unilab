@@ -6,9 +6,7 @@ import CategoryPageMainContent from "../../Components/CategoryPageMainContent";
 const CategoryPage = () => {
   return (
     <>
-      <Header />
       <CategoryPageMainContent />
-      <Footer />
     </>
   );
 };
