@@ -10,7 +10,7 @@ const CartProvider = ({ children }) => {
     if (includesItem) {
       const newCartItems = cartItems.map((itm) => {
         if (itm.id === item.id) {
-          itm.numberOfItems += item.numberOfItems;
+          itm.numberOfItems = item.numberOfItems;
         }
         return itm;
       });
