@@ -19,6 +19,7 @@ import ItemCard from "../../Components/Ui/ItemCard";
 import arrowRightGray from "../../assets/Icons/arrow-right-gray.svg";
 import { messageContext } from "../../Services/Providers/MessageContext";
 import { useDeferredValue } from "react";
+import { useCallback } from "react";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -31,12 +32,11 @@ const ProductDetailsPage = () => {
 
   const { addToCart } = useContext(CartContext);
 
-  const handleAddtoCart = () => {
+  const handleAddtoCart = useCallback(() => {
     if (numberOfItems === 0) return;
-    console.log({ ...currentProduct, numberOfItems });
     addToCart({ ...currentProduct, numberOfItems });
     setMessageSuccess("Succesfully added to Cart!");
-  };
+  }, [currentProduct, numberOfItems, addToCart, setMessageSuccess]);
 
   useEffect(() => {
     getProductById(id)
