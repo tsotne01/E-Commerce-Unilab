@@ -35,6 +35,7 @@ export const MessageProvider = ({ children }) => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
+            <title>Error</title>
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -60,6 +61,7 @@ export const MessageProvider = ({ children }) => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
+            <title>Success</title>
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
