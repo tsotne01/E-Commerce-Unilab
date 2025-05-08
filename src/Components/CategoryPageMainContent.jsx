@@ -43,12 +43,11 @@ const CategoryPageMainContent = () => {
             </div>
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-5 py-4 gap-x-5 gap-y-9">
-            {categoryItems &&
+            {!!categoryItems &&
               categoryItems.map((item) => (
-                <div className="max-w-2xs mx-auto sm:mx-0">
+                <div key={item.id} className="max-w-2xs mx-auto sm:mx-0">
                   <Link to={`/product-details/${item.id}`}>
                     <ItemCard
-                      key={item.id}
                       item={Object.assign({}, item, { image: shirtImage })}
                     />
                   </Link>

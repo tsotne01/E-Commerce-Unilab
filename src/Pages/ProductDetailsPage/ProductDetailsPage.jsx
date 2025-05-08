@@ -336,7 +336,7 @@ const ProductDetailsPage = () => {
         <div className="flex gap-x-2.5 md:w-80">
           <Button
             className="border-0 border-transparent bg-[#F0F0F0] rounded-[62px] px-5 py-4"
-            role="button"
+            type="button"
           >
             <span>Latest</span>
           </Button>

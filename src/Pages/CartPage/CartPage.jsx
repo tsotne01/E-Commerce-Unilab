@@ -72,8 +72,8 @@ const CartPage = () => {
                     <div className="flex flex-col justify-between mb-6">
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        role="button"
                         className="self-end"
+                        type="button"
                       >
                         <img src={deleteIcon} alt="delete icon" />
                       </button>
@@ -102,7 +102,6 @@ const CartPage = () => {
                 );
               })}
           </div>
-          <div></div>
         </div>
       </div>
     </main>
