@@ -23,6 +23,7 @@ const BrandsCarousel = () => {
       <div className="carousel-item">
         <img src={calvinKlein} alt="Calvin Klein" />
       </div>
+      
     </div>
   );
 };

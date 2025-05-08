@@ -32,3 +32,15 @@
     grid-template-columns: 400px 1fr;
     grid-template-rows: repeat(2, 1fr);
 }
+.animation-div{
+    animation: carousel 5s linear 0s infinite;
+}
+
+@keyframes carousel {
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(calc(-50% + 80px));
+    }
+}

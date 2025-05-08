@@ -3,17 +3,22 @@ import productPhoto1 from "../../assets/Images/Product_image_1.png";
 import productPhoto2 from "../../assets/Images/Product_image_2.png";
 import productPhoto3 from "../../assets/Images/Product_image_3.png";
 import { useContext, useEffect, useState } from "react";
-import { getProductById, getProducts, getTestimonialById } from "../../Services/Api/api";
+import {
+  getProductById,
+  getProducts,
+  getTestimonialById,
+} from "../../Services/Api/api";
 import starIcon from "../../assets/Images/Star.svg";
 import Testimonial from "../../Components/Ui/Testimonial";
 import Button from "../../Components/Ui/Button";
 import decrementIcon from "../../assets/Icons/Decrement-icon.svg";
 import incrementIcon from "../../assets/Icons/Increment-icon.svg";
 import { CartContext } from "../../Services/Providers/CartContext";
-import shirtImage from "../../assets/Images/shirt.png"
+import shirtImage from "../../assets/Images/shirt.png";
 import ItemCard from "../../Components/Ui/ItemCard";
-import arrowRightGray from "../../assets/Icons/arrow-right-gray.svg"
+import arrowRightGray from "../../assets/Icons/arrow-right-gray.svg";
 import { messageContext } from "../../Services/Providers/MessageContext";
+import { useDeferredValue } from "react";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -22,7 +27,7 @@ const ProductDetailsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [numberOfItems, setNumberOfItems] = useState(0);
   const [products, setProducts] = useState();
-  const {setMessageSuccess} = useContext(messageContext)
+  const { setMessageSuccess } = useContext(messageContext);
 
   const { addToCart } = useContext(CartContext);
 
@@ -30,7 +35,7 @@ const ProductDetailsPage = () => {
     if (numberOfItems === 0) return;
     console.log({ ...currentProduct, numberOfItems });
     addToCart({ ...currentProduct, numberOfItems });
-    setMessageSuccess("Succesfully added to Cart!")
+    setMessageSuccess("Succesfully added to Cart!");
   };
 
   useEffect(() => {
@@ -41,14 +46,13 @@ const ProductDetailsPage = () => {
       .catch((error) => {
         console.error("Error fetching product details:", error);
       });
-
   }, [id]);
 
   useEffect(() => {
     getProducts()
       .then((products) => setProducts(products.slice(0, 4)))
       .catch((err) => console.error(err));
-  }, [])
+  }, []);
 
   useEffect(() => {
     getTestimonialById(id)
@@ -60,17 +64,39 @@ const ProductDetailsPage = () => {
       });
   }, [id]);
 
-  useEffect(()=>{
-    setNumberOfItems(0)
-  },[id])
+  useEffect(() => {
+    setNumberOfItems(0);
+  }, []);
+
+  const defferedProducts = useDeferredValue(products);
 
   return (
     <main className="flex max-w-[1440px] w-full lg:px-[65px] pl-6 flex-col justify-center mx-auto">
       <div className="flex items-center gap-x-1 text-[#00000099] text-base mb-9 border-t-1 border-[#0000001A] pt-6">
-        <span className="satoshi flex items-center">Home <img className="inline-block" src={arrowRightGray} alt="arrow right" /> 
-        </span> 
-        <span className="flex items-center">Shop <img className="inline-block" src={arrowRightGray} alt="arrow right" /></span>  
-        <span className="flex items-center">Men <img className="inline-block" src={arrowRightGray} alt="arrow right" /></span> 
+        <span className="satoshi flex items-center">
+          Home
+          <img
+            className="inline-block"
+            src={arrowRightGray}
+            alt="arrow right"
+          />
+        </span>
+        <span className="flex items-center">
+          Shop
+          <img
+            className="inline-block"
+            src={arrowRightGray}
+            alt="arrow right"
+          />
+        </span>
+        <span className="flex items-center">
+          Men
+          <img
+            className="inline-block"
+            src={arrowRightGray}
+            alt="arrow right"
+          />
+        </span>
         <span className="text-black">T-shirts</span>
       </div>
       <div className="md:flex mb-20">
@@ -168,7 +194,7 @@ const ProductDetailsPage = () => {
                       type="radio"
                     />
                   </label>
-                
+
                   <label
                     htmlFor="color2"
                     className="bg-blue-200 rounded-full w-9 h-9"
@@ -259,7 +285,11 @@ const ProductDetailsPage = () => {
                   <div className="bg-[#F0F0F0] p-3.5 rounded-[62px] flex items-center justify-between min-w-27 max-w-44 md:w-44 w-28">
                     <button
                       type="button"
-                      onClick={() => setNumberOfItems((prev) => prev - 1 > 0 ? prev - 1 : 0)}
+                      onClick={() =>
+                        setNumberOfItems((prev) =>
+                          prev - 1 > 0 ? prev - 1 : 0,
+                        )
+                      }
                     >
                       <img src={decrementIcon} alt="decrement" />
                     </button>
@@ -286,33 +316,59 @@ const ProductDetailsPage = () => {
         )}
       </div>
       <div className="tabs mb-6">
-        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1 border-[#0000001A]">Product Details</span>
-        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1">Rating & Reviews</span>
-        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1 border-[#0000001A]">FAQ</span>
-
-
+        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1 border-[#0000001A]">
+          Product Details
+        </span>
+        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1">
+          Rating & Reviews
+        </span>
+        <span className="inline-block w-1/3 text-center py-4 px-7 border-b-1 border-[#0000001A]">
+          FAQ
+        </span>
       </div>
       <div className="mb-6 flex justify-between">
-        <h3 className="satoshi font-bold text-2xl">All Reviews <span className="text-base text-[#00000099] font-medium">({reviews.length})</span></h3>
+        <h3 className="satoshi font-bold text-2xl">
+          All Reviews{" "}
+          <span className="text-base text-[#00000099] font-medium">
+            ({reviews.length})
+          </span>
+        </h3>
         <div className="flex gap-x-2.5 md:w-80">
-          <Button className="border-0 border-transparent bg-[#F0F0F0] rounded-[62px] px-5 py-4" role="button"><span>Latest</span></Button>
-          <Button variant="primary" className="rounded-[64px]" role="button">Write a review</Button>
-
+          <Button
+            className="border-0 border-transparent bg-[#F0F0F0] rounded-[62px] px-5 py-4"
+            role="button"
+          >
+            <span>Latest</span>
+          </Button>
+          <Button variant="primary" className="rounded-[64px]" role="button">
+            Write a review
+          </Button>
         </div>
       </div>
       <div className="flex flex-wrap gap-5 mb-9">
         {reviews?.length &&
           reviews.map((review) => (
-            <Testimonial className="w-1/2" testimonial={review} key={review.id} />
+            <Testimonial
+              className="w-1/2"
+              testimonial={review}
+              key={review.id}
+            />
           ))}
       </div>
-      <Button variant="secondary" className="md:w-[230px] w-44 mx-auto rounded-[62px] mb-16" role="button">Load More Reviews</Button>
+      <Button
+        variant="secondary"
+        className="md:w-[230px] w-44 mx-auto rounded-[62px] mb-16"
+      >
+        Load More Reviews
+      </Button>
       <div>
-        <h2 className="text-center integral-cf font-extrabold text-5xl mb-14">You might also like</h2>
+        <h2 className="text-center integral-cf font-extrabold text-5xl mb-14">
+          You might also like
+        </h2>
         <div>
           <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0 scroll">
-            {!!products &&
-              products?.map((item) => (
+            {!!defferedProducts &&
+              defferedProducts?.map((item) => (
                 <Link key={item.id} to={`/product-details/${item.id}`}>
                   <ItemCard
                     item={Object.assign({}, item, { image: shirtImage })}
