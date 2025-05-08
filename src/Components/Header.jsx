@@ -19,7 +19,7 @@ const Header = () => {
     <>
       <div
         ref={signupBlock}
-        className="bg-black w-full relative  text-white flex justify-center items-center text-xs md:text-sm h-[38px] satoshi"
+        className="bg-black w-full relative  text-white hidden sm:flex justify-center items-center text-xs md:text-sm h-[38px] satoshi"
       >
         Sign up and get 20% off to your first order.{" "}
         <NavLink className="satoshi underline ml-1" to="/signup-page">
@@ -34,11 +34,11 @@ const Header = () => {
         </button>
       </div>
       <header className="flex justify-center">
-        <div className="flex max-w-[1440px] w-full md:px-[65px] justify-between pl-6  items-center py-6">
+        <div className="flex max-w-[1440px] w-full md:px-[65px] justify-between pl-1 sm:pl-6  items-center py-6 whitespace-nowrap">
           <div className="flex items-center mr-0 md:mr-10">
             <BurgerMenu />
             <NavLink className="satoshi mr-2" to="/">
-              <span className="integral-cf font-extrabold text-3xl">
+              <span className="integral-cf font-extrabold text-xl md:text-3xl">
                 Shop.co
               </span>
             </NavLink>

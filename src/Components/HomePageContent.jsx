@@ -28,7 +28,7 @@ const MainContent = () => {
     <main className="flex flex-col justify-center">
       <section className="bg-[#F2F0F1] w-full flex justify-center items-center">
         <div className="flex w-[1440px] flex-col md:flex-row gap-0 md:gap-28 ">
-          <div className="ml-10 sm:ml-20 md:ml-25  mt-2 md:mt-10 lg:mt-22 max-w-[90%] md:max-w-[592px]">
+          <div className="ml-10 sm:ml-15 md:ml-20  mt-2 md:mt-10 lg:mt-22 max-w-[90%] md:max-w-[592px]">
             <h1 className="font-extrabold leading-[64px] tracking-wide text-4xl max-w-[577px] md:text-5xl lg:text-[64px] text-wrap  integral-cf mb-5 md:mb-6">
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </h1>
@@ -43,7 +43,7 @@ const MainContent = () => {
             >
               Shop Now
             </button>
-            <div className="flex flex-wrap md:flex-nowrap gap-5">
+            <div className="flex flex-wrap md:flex-nowrap gap-5 md:mb-24">
               <div className="flex flex-col pr-10 border-r-1 border-[#0000001A] ">
                 <span className="block tracking-wide text-[40px] satoshi font-extrabold">
                   200+
@@ -87,7 +87,8 @@ const MainContent = () => {
           <h2 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
             NEW ARRIVALS
           </h2>
-          <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0 scroll">
+          <div className="mx-auto flex justify-center items-center w-full ">
+            <div className="flex gap-5 max-w-5xl w-full overflow-scroll scrollbar-w-0 scroll">
             {!!products &&
               products?.map((item) => (
                 <Link key={item.id} to={`/product-details/${item.id}`}>
@@ -96,6 +97,7 @@ const MainContent = () => {
                   />
                 </Link>
               ))}
+              </div>
           </div>
           <button
             type="button"
@@ -110,7 +112,8 @@ const MainContent = () => {
           <h2 className="integral-cf font-extrabold text-[32px] mx-auto sm:text-4xl md:text-5xl mb-[35px] md:mb-[55px]">
             top selling{" "}
           </h2>
-          <div className="mx-auto flex gap-5 max-w-full overflow-scroll scrollbar-w-0">
+          <div className="mx-auto flex justify-center items-center w-full ">
+            <div className="flex gap-5 max-w-5xl w-full overflow-scroll scrollbar-w-0 scroll">
             {!!products &&
               products?.map((item) => (
                 <Link key={item.id} to={`/product-details/${item.id}`}>
@@ -119,6 +122,7 @@ const MainContent = () => {
                   />
                 </Link>
               ))}
+              </div>
           </div>
           <button
             type="button"
