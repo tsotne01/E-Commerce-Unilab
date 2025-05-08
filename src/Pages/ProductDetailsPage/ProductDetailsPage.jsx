@@ -26,18 +26,19 @@ const ProductDetailsPage = () => {
   const [currentPhoto, setCurrentPhoto] = useState(productPhoto1);
   const [currentProduct, setCurrentProduct] = useState();
   const [reviews, setReviews] = useState([]);
-  const [numberOfItems, setNumberOfItems] = useState(0);
+  const { addToCart, getNumberOfItems } = useContext(CartContext);
+  const [numberOfItems, setNumberOfItems] = useState(() => {
+    return getNumberOfItems(id);
+  });
   const [products, setProducts] = useState();
   const { setMessageSuccess } = useContext(messageContext);
-
-  const { addToCart } = useContext(CartContext);
 
   const handleAddtoCart = useCallback(() => {
     if (numberOfItems === 0) return;
     addToCart({ ...currentProduct, numberOfItems });
     setMessageSuccess("Succesfully added to Cart!");
   }, [currentProduct, numberOfItems, addToCart, setMessageSuccess]);
-
+  console.log(numberOfItems);
   useEffect(() => {
     getProductById(id)
       .then((product) => {
@@ -63,10 +64,6 @@ const ProductDetailsPage = () => {
         console.error("Error fetching reviews:", error);
       });
   }, [id]);
-
-  useEffect(() => {
-    setNumberOfItems(0);
-  }, []);
 
   const defferedProducts = useDeferredValue(products);
 
@@ -340,7 +337,7 @@ const ProductDetailsPage = () => {
           >
             <span>Latest</span>
           </Button>
-          <Button variant="primary" className="rounded-[64px]" role="button">
+          <Button variant="primary" className="rounded-[64px]" type="button">
             Write a review
           </Button>
         </div>

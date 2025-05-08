@@ -39,6 +39,12 @@ const CartProvider = ({ children }) => {
     setCartItems(() => newItems);
   };
 
+  const getNumberOfItems = (itemId) => {
+    const itm = cartItems.find((item) => item.id === itemId);
+    console.log(itm);
+    return itm ? itm.numberOfItems : 0;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -47,6 +53,7 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         clearCart,
         setNumberOfItems,
+        getNumberOfItems,
       }}
     >
       {children}
