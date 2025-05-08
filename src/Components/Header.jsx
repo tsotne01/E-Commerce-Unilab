@@ -13,7 +13,7 @@ import BurgerMenu from "./BurgerMenu";
 const Header = () => {
   const signupBlock = useRef(null);
   const handleSignupCloseClick = () => {
-    signupBlock.current.classList.add("hidden");
+    signupBlock.current.classList.add("sm:hidden");
   };
   return (
     <>
