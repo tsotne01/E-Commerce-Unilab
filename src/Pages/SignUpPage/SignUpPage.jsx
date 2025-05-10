@@ -13,6 +13,7 @@ import appleIcon from "../../assets/Icons/Apple-icon.svg";
 import googleIcon from "../../assets/Icons/Google-icon.svg";
 import { NavLink } from "react-router-dom";
 import { messageContext } from "../../Services/Providers/MessageContext.jsx";
+import checkCircle from "../../assets/Images/check-circle.png"
 
 const SignUpPage = () => {
   // const navigate = useNavigate();
@@ -47,9 +48,15 @@ const SignUpPage = () => {
   }
   if (isRegistered) {
     return (
-      <NavLink to="/login-page" className="text-blue-500 hover:text-blue-700">
-        Go to login page
-      </NavLink>
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="flex flex-col items-center gap-8">
+          <img className="w-[100px] h-[100px]" src={checkCircle} alt="checked circle" />
+          <h2 className="text-lg text-center font-bold">Sign Up successfully</h2>
+          <NavLink to="/login-page" className="text-white bg-black flex items-center justify-center w-full min-h-12 min-w-2xs max-w-2xl">
+            Login
+          </NavLink>
+        </div>
+      </div>
     );
   }
 
